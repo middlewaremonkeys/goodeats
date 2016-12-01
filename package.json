@@ -19,6 +19,8 @@
   "homepage": "https://github.com/middlewaremonkeys/goodeats#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "express": "^4.14.0"
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "yelp-fusion": "^1.0.3"
   }
 }
