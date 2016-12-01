@@ -10,10 +10,8 @@ app.use(express.static(__dirname + '/../client'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/api/yelp/:query', (req, res) => {
-  let query = req.params.query;
-
-  yelpController.getBuisness(query)
+app.post('/api/yelp/', (req, res) => {
+  yelpController.search(req.body)
     .then((data) => {
       res.json(data);
     })
