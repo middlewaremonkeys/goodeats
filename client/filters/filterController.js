@@ -4,22 +4,22 @@ angular.module('goodEats.filters', [])
   $scope.data = {};
   $scope.prices = []; 
 
-  $scope.priceFilter = function(price) {
-    // $scope.prices.push(price);
+  $scope.priceFilter = function(food, location, price) {
+    $scope.prices.push(price);
 
   	return $http({
       method: 'POST',
       url: '/location',
-      data: { prices : price}
-      // {
-      // 	"term": $TERM,
-      // 	"location": $LOCATION,
-      // 	"price": $scope.prices
-      // }
+      data: 
+      {
+      	"term": $scope.food,  //CREATE A SEARCH CONTROLLER AS A WRAPPER
+      	"location": $scope.location,
+      	"price": $scope.prices
+      }
     })
     .then(function(data) {
       console.log('THE DATA', data);
-      // return data
+      return data;
 
     })
     .catch(function(error) {
