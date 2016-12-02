@@ -1,24 +1,28 @@
 //a user should be able to enter their search location
 //by typing in an input box
 
-angular.module('goodEats.locator', [])
+angular.module('goodEats.inputController', [])
 
-.controller('locationController', function($scope, $http) {
-
-	$scope.locator = function(location) {
-		$http({
-		  method: 'POST',
-		  url: '/location',
-		  data: { loctation: location }
-		  })
-		.then(function(data) {
-			// var prsed = JSON.parse(data.data);
-			console.log(data);
+.controller('inputController', function($scope, FoodSearch) {
+	$scope.data = {};
+	$scope.query;
+	$scope.search = function() {
+		FoodSearch.search($scope.query)
+			.then(function(data) {
+				console.log(data);
+				$scope.data = data;
+			})
+	}
+})
+.factory('FoodSearch', function($http) {
+	var search = function(options) {
+		return $http({
+			method: 'POST',
+		  url: '/api/yelp',
+		  data: options
 		})
-		.catch(function(error) {
-			console.log(error);
+		.then(function(response) {
+			return response.data;
 		})
 	};
 });
-
-

@@ -4,13 +4,14 @@
     <meta charset="utf-8">
     <title>Goodeats</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.min.js"></script>
-
   </head>
   <body ng-app="goodEats">
 		
-		<div class="location" ng-controller="locationController">
-			<input type="text" ng-model="location" placeholder ="Where are you?" />
-			<button ng-click="locator(location)"> submit </button>
+		<div class = "foodSearch" ng-controller="inputController">
+			<input type="text" ng-model="query.term" placeholder="habe Bier?" />
+			<input type="text" ng-model="query.location" placeholder ="Where are you?" />
+			<button ng-click="search()"> submit </button>
+			<li ng-repeat="stuff in data.data | filter: query"><ul>{{data.name}}</ul></li>
 		</div>
     <form ng-submit="sendFoodSearch()" ng-controller="foodSearchController">
       <input type="text" placeholder="Enter a type of food" ng-model="data.foodRequest"/>
