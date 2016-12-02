@@ -38,19 +38,17 @@ var search = function(options) {
 
   return client.search(options)
     .then(response => {
-      let data = response.jsonBody.businesses;
-
-      return data.map((business) => {
+      return response.jsonBody.businesses.map((business) => {
         return {
           rating: business.rating,
           coordinates: business.coordinates,
           id: business.id,
-          review_count: business.review_count,
+          reviewCount: business.review_count,
           name: business.name,
-          is_closed: business.is_closed,
+          open: !business.is_closed,
           image: business.image_url,
-          categories: business.categories
           price: convertPrice(business.price),
+          categories: business.categories.map((category) => category.title)
         };
       });
     }).catch(e => {
