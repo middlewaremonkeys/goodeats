@@ -3,14 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Goodeats</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
 
   </head>
   <body ng-app="goodEats">
 		
-		<div class="location" ng-controller="locationController">
-			<input type="text" ng-model="location" placeholder ="Where are you?" />
-			<button ng-click="locator(location)"> submit </button>
+		<div class = "foodSearch" ng-controller="inputController">
+			<input type="text" ng-model="query.term" placeholder="habe Bier?" />
+			<input type="text" ng-model="query.location" placeholder ="Where are you?" />
+			<button ng-click="search()"> submit </button>
+			<li ng-repeat="stuff in data.data | filter: query"><ul>{{data.name}}</ul></li>
 		</div>
 
   </body>
