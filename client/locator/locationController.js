@@ -4,8 +4,9 @@
 angular.module('goodEats.inputController', [])
 
 .controller('inputController', function($scope, FoodSearch) {
-	$scope.data = {};
-	$scope.query;
+	$scope.data = [];
+	$scope.query = {};
+
 	$scope.search = function() {
 		FoodSearch.search($scope.query)
 			.then(function(data) {
@@ -24,5 +25,12 @@ angular.module('goodEats.inputController', [])
 		.then(function(response) {
 			return response.data;
 		})
-	};
+		.catch(function(err) {
+			console.log(err);
+		})
+	}
+
+	return {
+		search: search
+	}
 });
