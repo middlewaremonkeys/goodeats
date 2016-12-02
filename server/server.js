@@ -20,8 +20,14 @@ app.post('/api/yelp/', (req, res) => {
     });
 });
 
+app.post('/location', function(req, res) {
+	res.send('HELLO I WORK!!!!');
+	console.log(req.body);
+});
+
 app.get('/', function(req, res) {
   res.send('GOODEATS!!!!');
+
 });
 
 app.listen(port);
