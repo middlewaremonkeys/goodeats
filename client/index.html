@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Goodeats</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.min.js"></script>
 
   </head>
   <body ng-app="goodEats">
@@ -16,9 +16,14 @@
       <input type="text" placeholder="Enter a type of food" ng-model="data.foodRequest"/>
       <input type="submit"/>
     </form>
-
+    <div class="prices" ng-controller="filterController">
+       <input type="text" ng-model="price" placeholder ="price  category">
+        <button ng-click="priceFilter(price)"> submit </button>
+    </div>
   </body>
   <script src="app.js" charset="utf-8"></script>
   <script src="locator/locationController.js"></script>
   <script src="foodSearch/foodSearchController.js" charset="utf-8"></script>
+  <script src="filters/filterController.js"></script>
+
 </html>
