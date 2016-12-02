@@ -3,19 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>Goodeats</title>
-
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> <!-- check these -->
-        
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
   </head>
-  <body> 
-    <!-- Enter the type of food you're searching for -->
-    <form ng-submit="sendFoodSearch()" ng-controller="foodSearchController"><input type="text" placeholder="Enter a type of food" ng-model="data.foodRequest"/><input type="submit"/></form>
-
-
+  <body ng-app="goodEats">
+		
+		<div class="location" ng-controller="locationController">
+			<input type="text" ng-model="location" placeholder ="Where are you?" />
+			<button ng-click="locator(location)"> submit </button>
+		</div>
+    <form ng-submit="sendFoodSearch()" ng-controller="foodSearchController">
+      <input type="text" placeholder="Enter a type of food" ng-model="data.foodRequest"/>
+      <input type="submit"/>
+    </form>
 
   </body>
   <script src="app.js" charset="utf-8"></script>
+  <script src="locator/locationController.js"></script>
   <script src="foodSearch/foodSearchController.js" charset="utf-8"></script>
 </html>

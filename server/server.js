@@ -20,17 +20,19 @@ app.post('/api/yelp/', (req, res) => {
     });
 });
 
+app.post('/location', function(req, res) {
+	res.send('HELLO I WORK!!!!');
+	console.log(req.body);
+});
+
 app.get('/', function(req, res) {
   res.send('GOODEATS!!!!');
-
-    console.log('I am successfully receiving a GET request...');
+  console.log('I am successfully receiving a GET request...');
 });
 
 app.post('/api/yelp', function(req, res) {
 	console.log("I AM WORKING");
   res.send(req.body);
-
-
 });
 
 app.listen(port);
