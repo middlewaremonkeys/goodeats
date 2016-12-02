@@ -18,11 +18,11 @@ app.post('/api/yelp/', (req, res) => {
     .catch((err) => {
       res.json(err);
     });
-};
+});
 
 app.post('/location', function(req, res) {
 	res.send('HELLO I WORK!!!!');
-	console.log(req.body.location);
+	console.log(req.body);
 });
 
 app.get('/', function(req, res) {
