@@ -49,8 +49,8 @@ var search = function(options) {
           name: business.name,
           is_closed: business.is_closed,
           image: business.image_url,
-          price: business.price,
           categories: business.categories
+          price: convertPrice(business.price),
         };
       });
     }).catch(e => {
@@ -58,6 +58,21 @@ var search = function(options) {
     });
 };
 
+/**
+ * Converts a '$' price given by yelp's api to a english string
+ * @param  string price string to be converted
+ * @return string       english string to price represents
+ */
+var convertPrice = (price) => {
+  let prices = {
+    '$': 'cheap',
+    '$$': 'medium',
+    '$$$': 'expensive',
+    '$$$$': 'high-end'
+  };
+
+  return prices[price];
+};
 
 module.exports = {
   search: search
