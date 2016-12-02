@@ -8,9 +8,14 @@ app.use(express.static(__dirname + '/../client'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.post('/location', function(req, res) {
+	res.send('HELLO I WORK!!!!');
+	console.log(req.body.location);
+});
 
 app.get('/', function(req, res) {
   res.send('GOODEATS!!!!');
+
 });
 
 app.listen(port);
