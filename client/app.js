@@ -1,3 +1,4 @@
 angular.module('goodEats', [
-	'goodEats.locator'
+	'goodEats.locator',
+	'goodEats.filters'
 ]);
