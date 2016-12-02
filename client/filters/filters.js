@@ -1,49 +1,25 @@
 angular.module('goodEats'.'filters', [])
 
 .controller('FilterController', function($scope, $http){
-  $scope.storage = {};
-   
+  $scope.data = {};
+  $scope.data.prices = []; 
+
   $scope.priceFilter = function(price) {
+    $scope.data.prices.push(price);
+
     return $http({
       method:'POST',
-      url: '/price',
-      data: JSON.stringify({ $scope.storage})
+      url: '/prices',
+      data: JSON.stringify({ $scope.data})
     })
     .then(function(data) {
       console.log('THE DATA', data);
-      return data;  //have to finish this one
+      return data
     })
     .catch(function(error) {
       console.log("ERROR:", error);
     })
   }
-}]) 
+   
+}); 
 
-
-
-
-
-
-
-
-
-
-
-
-// .controller('locationController', function($scope, $http) {
-
-// 	$scope.locator = function(location) {
-// 		$http({
-// 			method: 'POST',
-// 		  url: '/location',
-// 		  data: { loctation: location }
-// 		  })
-// 		.then(function(data) {
-// 			// var prsed = JSON.parse(data.data);
-// 			console.log(data);
-// 		})
-// 		.catch(function(error) {
-// 			console.log(error);
-// 		})
-// 	};
-// });
