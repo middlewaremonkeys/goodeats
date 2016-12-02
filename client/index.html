@@ -10,12 +10,16 @@
 		
 		<div class="location" ng-controller="locationController">
 			<input type="text" ng-model="location" placeholder ="Where are you?" />
-      <input type="text" ng-model="data.storage.prices" placeholder ="price category">
-			<button ng-click="locator(location); priceFilter(data.storage.prices)"> submit </button>
+      <!-- <input type="text" ng-model="prices" placeholder ="price category"> -->
+			<button ng-click="locator(location)"> submit </button>
 		</div>
+    <div class="prices" ng-controller="filterController">
+       <input type="text" ng-model="price" placeholder ="price  category">
+        <button ng-click="priceFilter(price)"> submit </button>
+    </div>
 
   </body>
-  <script src="server/app.js" charset="utf-8"></script>
+  <script src="app.js" charset="utf-8"></script>
   <script src="locator/locationController.js"></script>
-  <script src="filters/filters.js"></script>
+  <script src="filters/filterController.js"></script>
 </html>
