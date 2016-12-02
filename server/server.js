@@ -11,6 +11,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', function(req, res) {
   res.send('GOODEATS!!!!');
+
+    console.log('I am successfully receiving a GET request...');
+});
+
+app.post('/api/yelp', function(req, res) {
+	console.log("I AM WORKING");
+  res.send(req.body);
+
+
 });
 
 app.listen(port);
