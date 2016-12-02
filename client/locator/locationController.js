@@ -7,7 +7,7 @@ angular.module('goodEats.locator', [])
 
 	$scope.locator = function(location) {
 		$http({
-			method: 'POST',
+		  method: 'POST',
 		  url: '/location',
 		  data: { loctation: location }
 		  })
@@ -20,3 +20,5 @@ angular.module('goodEats.locator', [])
 		})
 	};
 });
+
+
