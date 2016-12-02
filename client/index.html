@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='goodEats'>
   <head>
     <meta charset="utf-8">
     <title>Goodeats</title>
@@ -12,8 +12,13 @@
 			<input type="text" ng-model="location" placeholder ="Where are you?" />
 			<button ng-click="locator(location)"> submit </button>
 		</div>
+    <form ng-submit="sendFoodSearch()" ng-controller="foodSearchController">
+      <input type="text" placeholder="Enter a type of food" ng-model="data.foodRequest"/>
+      <input type="submit"/>
+    </form>
 
   </body>
   <script src="app.js" charset="utf-8"></script>
   <script src="locator/locationController.js"></script>
+  <script src="foodSearch/foodSearchController.js" charset="utf-8"></script>
 </html>
