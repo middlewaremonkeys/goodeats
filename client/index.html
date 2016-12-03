@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
+<!-- This is the correct index.html file. Sam will delete old one. -->
 <html ng-app='goodEats'>
   <head>
     <meta charset="utf-8">
@@ -17,8 +18,31 @@
       <input type="submit"/>
     </form>
 
+<button type="submit" class="btn btn-default" ng-click="vm.submit(vm.user)">Submit</button>
+
+    <!-- new feature - button to filter open establishments -->
+    <br>
+    <br>
+
+  <button ng-model="openEstab" ng-change="openEstab" ng-controller="openEstabController" ng-click="toggleOpenEstablishments()">Only open establishments </button>
+
+    <!-- <button ng-click="toggleOpenEstablishments()" ng-controller="openEstabController" ng-model="openEstab" Only open establishments </button> -->
+
+<!-- <form ng-submit="selectOpenEstablishments()" ng-controller="openEstabController">
+      <input type="boolean" placeholder="Click for only open establishments" ng-model="openEstab"/>
+      <input type="submit"/>
+    </form> -->
+
+   
+    <!-- these didn't work: <button ng-change didn't work -->  
+    <!-- <button ng-click="filterOpenEstablishments()" ng-controller="openEstabController" ng-model="openEstab"> Only open </button> -->
+
+    <!-- <input type="radio" ng-model="openEstab" ng-value="boolean"> Only open  -->
+
+
   </body>
   <script src="app.js" charset="utf-8"></script>
   <script src="locator/locationController.js"></script>
   <script src="foodSearch/foodSearchController.js" charset="utf-8"></script>
+  <script src="openEstablishments/openEstabController.js" charset="utf-8"></script>
 </html>

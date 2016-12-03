@@ -11,13 +11,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/api/yelp/', (req, res) => {
-  yelpController.search(req.body)
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
+  // yelpController.search(req.body)
+  //   .then((data) => {
+  //     res.json(data);
+  //   })
+  //   .catch((err) => {
+  //     res.json(err);
+  //   });
+  res.json(req.body);
+  console.log(`req.body: ${req.body}`);
 });
 
 app.post('/location', function(req, res) {
