@@ -4,8 +4,8 @@ angular.module('goodEats.filters', [])
   $scope.data = {};
   $scope.prices = []; 
 
-  $scope.priceFilter = function(food, location, price) {
-    $scope.prices.push(price);
+  $scope.priceFilter = function() {
+    $scope.prices.push($scope.price);
 
   	return $http({
       method: 'POST',
@@ -20,7 +20,6 @@ angular.module('goodEats.filters', [])
     .then(function(data) {
       console.log('THE DATA', data);
       return data;
-
     })
     .catch(function(error) {
       console.log("ERROR:", error);
