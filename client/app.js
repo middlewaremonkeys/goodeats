@@ -1,5 +1,4 @@
 angular.module('goodEats', [
-	'goodEats.locator',
-	'goodEats.foodSearch',
-	'goodEats.filters'
+	'goodEats.filters',
+	'goodEats.inputController'
 ]);
