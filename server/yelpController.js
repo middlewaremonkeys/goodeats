@@ -35,6 +35,7 @@ yelp.accessToken(clientId, clientSecret).then(response => {
  *
  */
 var search = function(options) {
+  options.price = options.price.sort().join();
 
   return client.search(options)
     .then(response => {
@@ -47,12 +48,13 @@ var search = function(options) {
           name: business.name,
           open: !business.is_closed,
           image: business.image_url,
-          price: convertPrice(business.price),
+          price: convertPriceToEnglish(business.price),
           categories: business.categories.map((category) => category.title)
         };
       });
     }).catch(e => {
       console.log(e);
+      return e;
     });
 };
 
@@ -61,7 +63,7 @@ var search = function(options) {
  * @param  string price string to be converted
  * @return string       english string to price represents
  */
-var convertPrice = (price) => {
+var convertPriceToEnglish = (price) => {
   let prices = {
     '$': 'cheap',
     '$$': 'medium',
