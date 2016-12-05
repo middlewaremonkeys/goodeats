@@ -35,6 +35,7 @@ yelp.accessToken(clientId, clientSecret).then(response => {
  *
  */
 var search = function(options) {
+  setDefaultOptions(options);
 
   return client.search(options)
     .then(response => {
@@ -72,6 +73,31 @@ var convertPrice = (price) => {
   return prices[price];
 };
 
+/**
+ * Set's default query options for a given object if none are set
+ * @param Object options Given query options object
+ */
+var setDefaultOptions = (options) => {
+  let defaultOptions = {
+    term: null,
+    radius: 0,
+    categories: null,
+    limit: 10,
+    offset: 0,
+    sortBy: 'best_match',
+    price: null,
+    openNow: null
+  };
+
+  for (var option in defaultOptions) {
+    if ((!options.hasOwnProperty(option) || options[option].length <= 0) && defaultOptions[option]) {
+      options[option] = defaultOptions[option];
+    }
+  }
+
+  setDefaultLocation(options);
+  convertOptionsName(options);
+};
 module.exports = {
   search: search
 };
