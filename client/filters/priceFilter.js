@@ -18,7 +18,7 @@ angular.module('goodEats.priceFilter', [])
       url: '/location',
       data:
       {
-        'term': $scope.food,  //CREATE A SEARCH CONTROLLER AS A WRAPPER
+        'term': $scope.food, 
         'location': $scope.location,
         'price': $scope.prices
       }
