@@ -113,6 +113,25 @@ var setDefaultLocation = (options) => {
     options.longitude = -74.005941;
   }
 };
+
+/**
+ * Converts options object props to correct values for yelp API
+ * @param Object options Given query options objec
+ */
+var convertOptionsName = (options) => {
+  let changedNames = {
+    sortBy: 'sort_by',
+    openNow: 'open_now'
+  };
+
+  for (var name in changedNames) {
+    if (options.hasOwnProperty(name)) {
+      options[changedNames[name]] = options[name];
+      delete options[name];
+    }
+  }
+};
+
 module.exports = {
   search: search
 };
