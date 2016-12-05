@@ -7,6 +7,7 @@ var port = process.env.PORT || 3000;
 var yelpController = require('./yelpController');
 
 app.use(express.static(__dirname + '/../client'));
+// app.use('/node_modules', express.static(__dirname + '/../node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
