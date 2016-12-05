@@ -11,25 +11,33 @@
       <input type="text" ng-model="query.location" placeholder ="Where are you?" />
       <button ng-click="search()"> submit </button>
     </div>
-    <ul ng-controller="displayController">
-      <li ng-repeat="business in data">
-        <img ng-src="{{business.image}}">
-        name: {{business.name}}
-        <br>
-        ratings: {{business.rating}}
-        <br>
-        reviews: {{business.review_count}}
-        <br>
-      </li>
-    </ul>
-    <div class="prices" ng-controller="filterController">
-       <input type="text" ng-model="price" placeholder ="price  category">
-        <button ng-click="priceFilter()"> submit </button>
+      <button ng-model="openEstab" ng-change="openEstab" ng-controller="openEstabController" ng-click="toggleOpenEstablishments()">Open Now</button>
+
+        <div class="prices" ng-controller="filterController">
+          Prices:
+          <select ng-change="priceFilter()" ng-options="p.name as p.price group by p.price for p in prices" ng-model="prices"> 
+            <option>--</option>
+          </select>
+          Ratings:
+          <select ng-change="ratingFilter()" ng-options="r.name as r.rating group by r.rating for r in ratings | orderby: ratings.rating" ng-model="ratings">
+            <option>--</option>
+          </select>
+        </div>
+
+      <ul ng-controller="displayController">
+        <li ng-repeat="business in data">
+          <img ng-src="{{business.image}}">
+          <br>
+          name: {{business.name}}
+          <br>
+          ratings: {{business.rating}}
+          <br>
+          reviews: {{business.reviewCount}}
+          <br>
+        </li>
+      </ul>
     </div>
-    <button type="submit" class="btn btn-default" ng-click="vm.submit(vm.user)">Submit</button>
-    <br>
-    <br>
-    <button ng-model="openEstab" ng-change="openEstab" ng-controller="openEstabController" ng-click="toggleOpenEstablishments()">Only open establishments </button>
+    
 </body>
   <script src="app.js" charset="utf-8"></script>
   <script src="services/services.js" charset="utf-8"></script>

@@ -1,6 +1,3 @@
-//a user should be able to enter their search location
-//by typing in an input box
-
 angular.module('goodEats.inputController', [])
 
 .controller('inputController', function($scope, FoodSearch) {
