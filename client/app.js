@@ -1,5 +1,5 @@
 angular.module('goodEats', [
-  'goodEats.filters',
+  'goodEats.priceFilter',
   'goodEats.inputController',
   'goodEats.foodSearch',
   'goodEats.openEstab'
