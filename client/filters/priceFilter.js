@@ -4,9 +4,15 @@ angular.module('goodEats.priceFilter', [])
   $scope.data = {};
   $scope.prices = [];
 
-  $scope.priceFilter = function() {
-    $scope.prices.push($scope.price);
+ $scope.priceFilter = function() {
+   $scope.prices.push($scope.price);
 
+    if($scope.prices.length > 1) {
+      $scope.prices = $scope.prices.filter(function(el, index, array) {
+        return index == array.indexOf(el);
+      });
+    }
+    
     return $http({
       method: 'POST',
       url: '/location',
