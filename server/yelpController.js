@@ -98,6 +98,21 @@ var setDefaultOptions = (options) => {
   setDefaultLocation(options);
   convertOptionsName(options);
 };
+
+/**
+ * Set's default location options for a given object, defaulting to a location string else lat/long else a default lat/long
+ * @param Object options Given query options object
+ */
+var setDefaultLocation = (options) => {
+  if (options.location && options.location.length > 0) {
+    delete options.latitude;
+    delete options.longitude;
+  } else if (!options.latitude && !options.longitude) {
+    delete options.location;
+    options.latitude = 40.712784;
+    options.longitude = -74.005941;
+  }
+};
 module.exports = {
   search: search
 };
