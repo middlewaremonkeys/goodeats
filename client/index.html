@@ -10,17 +10,18 @@
       <input type="text" ng-model="query.term" placeholder="habe Bier?" />
       <input type="text" ng-model="query.location" placeholder ="Where are you?" />
       <button ng-click="search()"> submit </button>
-      <ul>
-        <li ng-repeat="business in data">
-          <img ng-src="{{business.image}}">
-          name: {{business.name}}
-          <br>
-          ratings: {{business.rating}}
-          <br>
-          reviews: {{business.review_count}}
-          <br>
-        </li>
-      </ul>
+    </div>
+    <ul ng-controller="displayController">
+      <li ng-repeat="business in data">
+        <img ng-src="{{business.image}}">
+        name: {{business.name}}
+        <br>
+        ratings: {{business.rating}}
+        <br>
+        reviews: {{business.review_count}}
+        <br>
+      </li>
+    </ul>
     <div class="prices" ng-controller="filterController">
        <input type="text" ng-model="price" placeholder ="price  category">
         <button ng-click="priceFilter()"> submit </button>
