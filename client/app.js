@@ -1,6 +1,6 @@
 angular.module('goodEats', [
-	'goodEats.filters',
-	'goodEats.inputController',
-	'goodEats.foodSearch',
-	'goodEats.openEstab'
+  'goodEats.filters',
+  'goodEats.inputController',
+  'goodEats.foodSearch',
+  'goodEats.openEstab'
 ]);

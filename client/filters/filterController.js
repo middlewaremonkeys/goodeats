@@ -1,20 +1,20 @@
 angular.module('goodEats.filters', [])
 
-.controller('filterController', function($scope, $http){
+.controller('filterController', function($scope, $http) {
   $scope.data = {};
-  $scope.prices = []; 
+  $scope.prices = [];
 
   $scope.priceFilter = function() {
     $scope.prices.push($scope.price);
 
-  	return $http({
+    return $http({
       method: 'POST',
       url: '/location',
-      data: 
+      data:
       {
-      	"term": $scope.food,  //CREATE A SEARCH CONTROLLER AS A WRAPPER
-      	"location": $scope.location,
-      	"price": $scope.prices
+        'term': $scope.food,  //CREATE A SEARCH CONTROLLER AS A WRAPPER
+        'location': $scope.location,
+        'price': $scope.prices
       }
     })
     .then(function(data) {
@@ -22,8 +22,7 @@ angular.module('goodEats.filters', [])
       return data;
     })
     .catch(function(error) {
-      console.log("ERROR:", error);
-    })
+      console.log('ERROR:', error);
+    });
   };
-}); 
-
+});

@@ -1,55 +1,35 @@
 <!DOCTYPE html>
-<!-- This is the correct index.html file. Sam will delete old one. -->
 <html ng-app='goodEats'>
   <head>
     <meta charset="utf-8">
     <title>Goodeats</title>
-
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
-
   </head>
   <body ng-app="goodEats">
-
-		<div class = "foodSearch" ng-controller="inputController">
-			<input type="text" ng-model="query.term" placeholder="habe Bier?" />
-			<input type="text" ng-model="query.location" placeholder ="Where are you?" />
-			<button ng-click="search()"> submit </button>
-			<ul>
-				<li ng-repeat="business in data">
-					<img ng-src="{{business.image}}">
-					name: {{business.name}}
-					<br>
-					ratings: {{business.rating}}
-					<br>
-					reviews: {{business.review_count}}
-					<br>
-				</li>
-			</ul>
+    <div class = "foodSearch" ng-controller="inputController">
+      <input type="text" ng-model="query.term" placeholder="habe Bier?" />
+      <input type="text" ng-model="query.location" placeholder ="Where are you?" />
+      <button ng-click="search()"> submit </button>
+      <ul>
+        <li ng-repeat="business in data">
+          <img ng-src="{{business.image}}">
+          name: {{business.name}}
+          <br>
+          ratings: {{business.rating}}
+          <br>
+          reviews: {{business.review_count}}
+          <br>
+        </li>
+      </ul>
     <div class="prices" ng-controller="filterController">
        <input type="text" ng-model="price" placeholder ="price  category">
         <button ng-click="priceFilter()"> submit </button>
     </div>
     <button type="submit" class="btn btn-default" ng-click="vm.submit(vm.user)">Submit</button>
-
-        <!-- new feature - button to filter open establishments -->
-        <br>
-        <br>
-
-      <button ng-model="openEstab" ng-change="openEstab" ng-controller="openEstabController" ng-click="toggleOpenEstablishments()">Only open establishments </button>
-
-        <!-- <button ng-click="toggleOpenEstablishments()" ng-controller="openEstabController" ng-model="openEstab" Only open establishments </button> -->
-
-    <!-- <form ng-submit="selectOpenEstablishments()" ng-controller="openEstabController">
-          <input type="boolean" placeholder="Click for only open establishments" ng-model="openEstab"/>
-          <input type="submit"/>
-        </form> -->
-
-
-        <!-- these didn't work: <button ng-change didn't work -->
-        <!-- <button ng-click="filterOpenEstablishments()" ng-controller="openEstabController" ng-model="openEstab"> Only open </button> -->
-
-        <!-- <input type="radio" ng-model="openEstab" ng-value="boolean"> Only open  -->
-  </body>
+    <br>
+    <br>
+    <button ng-model="openEstab" ng-change="openEstab" ng-controller="openEstabController" ng-click="toggleOpenEstablishments()">Only open establishments </button>
+</body>
   <script src="app.js" charset="utf-8"></script>
   <script src="locator/locationController.js"></script>
   <script src="filters/filterController.js"></script>
