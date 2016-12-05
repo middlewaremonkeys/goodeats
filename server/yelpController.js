@@ -53,6 +53,7 @@ var search = function(options) {
       });
     }).catch(e => {
       console.log(e);
+      return e;
     });
 };
 
