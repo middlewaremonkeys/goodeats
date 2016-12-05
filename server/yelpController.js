@@ -35,7 +35,10 @@ yelp.accessToken(clientId, clientSecret).then(response => {
  *
  */
 var search = function(options) {
-  options.price = options.price.sort().join();
+  setDefaultOptions(options);
+  if (options.price) {
+    options.price = options.price.sort().join();
+  }
 
   return client.search(options)
     .then(response => {
@@ -72,6 +75,65 @@ var convertPriceToEnglish = (price) => {
   };
 
   return prices[price];
+};
+
+/**
+ * Set's default query options for a given object if none are set
+ * @param Object options Given query options object
+ */
+var setDefaultOptions = (options) => {
+  let defaultOptions = {
+    term: null,
+    radius: 0,
+    categories: null,
+    limit: 10,
+    offset: 0,
+    sortBy: 'best_match',
+    price: null,
+    openNow: null
+  };
+
+  for (var option in defaultOptions) {
+    if ((!options.hasOwnProperty(option) || options[option].length <= 0) && defaultOptions[option]) {
+      options[option] = defaultOptions[option];
+    }
+  }
+
+  setDefaultLocation(options);
+  convertOptionsName(options);
+};
+
+/**
+ * Set's default location options for a given object, defaulting to a location string else lat/long else a default lat/long
+ * @param Object options Given query options object
+ */
+var setDefaultLocation = (options) => {
+  if (options.location && options.location.length > 0) {
+    delete options.latitude;
+    delete options.longitude;
+  } else if (!options.latitude && !options.longitude) {
+    delete options.location;
+    options.latitude = 40.712784;
+    options.longitude = -74.005941;
+  }
+};
+
+/**
+ * Converts options object props to correct values for yelp API
+ * @param Object options Given query options objec
+ */
+var convertOptionsName = (options) => {
+  let changedNames = {
+    sortBy: 'sort_by',
+    openNow: 'open_now'
+  };
+
+  for (var name in changedNames) {
+    if (options.hasOwnProperty(name)) {
+      options[changedNames[name]] = options[name];
+      delete options[name];
+    }
+  }
 };
 
 module.exports = {
