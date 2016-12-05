@@ -4,4 +4,7 @@ angular.module('goodEats', [
   'goodEats.inputController',
   'goodEats.foodSearch',
   'goodEats.openEstab'
-]);
+])
+.controller('displayController', ($scope, Search) => {
+  $scope.data = Search.results;
+});
