@@ -14,7 +14,7 @@ angular.module('goodEats.radiusFilter', [])
       {
         'term': $scope.food, 
         'location': $scope.location,
-        'radius_filter': $scope.radius
+        'radius_filter': $scope.radius //radius is from the input from in the index.html
       }
     })
     .then(function(data) {
