@@ -35,6 +35,7 @@ yelp.accessToken(clientId, clientSecret).then(response => {
  *
  */
 var search = function(options) {
+  options.price = options.price.sort().join();
 
   return client.search(options)
     .then(response => {
