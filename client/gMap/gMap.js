@@ -1,7 +1,7 @@
 angular.module('gMap', ['GoogleMapsNative'])
 
 .controller('mapController', function($scope, $http, Search) {
-  
+  //Have to finish this one!
   $scope.data = Search.results;
   console.log("DATAAAAA", $scope.data)
   $scope.storage = [];
