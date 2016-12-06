@@ -1,6 +1,6 @@
 angular.module('MyApp', ['GoogleMapsNative'])
 
-.controller('mapController', function($scope, $log, $http) {
+.controller('mapController', function($scope, $http, Search) {
   
 $scope.fakeData = [
   {
@@ -190,20 +190,21 @@ $scope.fakeData = [
 
   console.log($scope.fakeData)  
 
-   $scope.getData = function() {
-   	return $http({
-   	  method: 'GET',
-   	  url: '/api/yelp'	
-   	})
-   	.then(function(returnedData) {
-   	  console.log(returnedData);
-   	  return returnedData;
-   	})
-   	.catch(function(error) {
-   	  console.log(error);
-   	});
-   }
+   // $scope.getData = function() {
+   // 	return $http({
+   // 	  method: 'GET',
+   // 	  url: '/api/yelp'	
+   // 	})
+   // 	.then(function(returnedData) {
+   // 	  console.log(returnedData);
+   // 	  return returnedData;
+   // 	})
+   // 	.catch(function(error) {
+   // 	  console.log(error);
+   // 	});
+   // }
 
+  $scope.data = Search.results;
   $scope.storage = [];
 
 	$scope.coords = {

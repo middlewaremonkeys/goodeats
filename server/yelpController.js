@@ -41,7 +41,12 @@ var search = function(options) {
       return response.jsonBody.businesses.map((business) => {
         return {
           rating: business.rating,
-          coordinates: business.coordinates,
+          coordinates: {
+            position: [
+              business.coordinates.latitude,
+              business.coordinates.longitude
+            ]
+          },
           id: business.id,
           reviewCount: business.review_count,
           name: business.name,
