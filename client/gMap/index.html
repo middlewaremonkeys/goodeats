@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="MyApp" ng-controller="mapController">
 <head>
-  <style>gm-map {float: right; width: 40%; height: 200px;}</style>
+<!-- <link rel="stylesheet" href="styles.css"> -->
+  <style>gm-map {float: right; width: 80%; height: 250px;}</style>
 <!--   <script src="../angular.min.js"></script> -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRLkiwWZDhcgtpg84llEW9JKCp5OphkOE"></script>
@@ -9,7 +10,6 @@
  <!--  <script>var app = angular.module('MyApp', ['GoogleMapsNative']); </script> -->
 </head>
   <body>
-
     <!-- <gm-map options="{center: [37.772323, -122.214897], zoom: 8, mapTypeId: google.maps.MapTypeId.ROADMAP}"> -->
       <!-- <gm-marker options="{position:  [37.772323, -122.214897], draggable: true}" on-dragend="coords.latitude=marker.getPosition().lat(); coords.longitude=marker.getPosition().lng()"> -->
         <!-- <gm-infowindow options="{content: 'Drag me!'}"></gm-infowindow> -->
@@ -17,8 +17,8 @@
     <!-- </gm-map> -->
     <gm-map options="{{ geolocation }}">
       <!-- <gm-marker options="{{ currentLocation }}" on-dragend="coords.latitude=marker.getPosition().lat(); coords.longitude=marker.getPosition().lng()"> -->
-      <gm-marker ng-repeat="loc in locArr" options="{{ loc.pos }}">
-        <gm-infowindow options="{content: '{{ loc.text }}' }">
+      <gm-marker ng-repeat="loc in fakeData" options="{{ loc.coordinates }}">
+       <!--  <gm-infowindow options="{content: '{{ loc.name }}' }"> -->
         </gm-infowindow>
       </gm-marker>
     </gm-map>
