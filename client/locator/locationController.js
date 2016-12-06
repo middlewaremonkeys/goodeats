@@ -10,7 +10,6 @@ angular.module('goodEats.inputController', [])
   $scope.search = function() {
     FoodSearch.search($scope.query)
       .then(function(data) {
-        console.log(data);
         $scope.data = data;
       });
   };
@@ -23,7 +22,6 @@ angular.module('goodEats.inputController', [])
       data: options
     })
     .then(function(response) {
-      // console.log("response.data", response.data);
       return response.data;
     })
     .catch(function(err) {

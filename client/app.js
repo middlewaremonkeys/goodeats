@@ -1,7 +1,11 @@
 angular.module('goodEats', [
   'goodEats.services',
-  'goodEats.filters',
   'goodEats.inputController',
   'goodEats.foodSearch',
-  'goodEats.openEstab'
+  'goodEats.openEstab',
+  'goodEats.priceFilter',
+  'goodEats.radiusFilter'
 ])
+.controller('displayController', ($scope, Search) => {
+  $scope.data = Search.results;
+});
