@@ -44,7 +44,7 @@ var search = function(options) {
     .then(response => {
       return response.jsonBody.businesses.map((business) => {
         return {
-          rating: business.rating,
+          rating: convertRatingToEnglish(business.rating),
           coordinates: {
             position: [
               business.coordinates.latitude,
@@ -69,7 +69,7 @@ var search = function(options) {
 /**
  * Converts a '$' price given by yelp's api to a english string
  * @param  string price string to be converted
- * @return string       english string to price represents
+ * @return string       english string price represents
  */
 var convertPriceToEnglish = (price) => {
   let prices = {
@@ -80,6 +80,23 @@ var convertPriceToEnglish = (price) => {
   };
 
   return prices[price];
+};
+
+/**
+ * Converts a rating given by yelp's api to a english string
+ * @param  string rating string to be converted
+ * @return string        english string rating represents
+ */
+var convertRatingToEnglish = (rating) => {
+  let ratings = {
+    1: 'you may die',
+    2: 'eat at your own risk',
+    3: 'edible',
+    4: 'delicious',
+    5: 'experience foodgasms'
+  };
+
+  return ratings[Math.floor(rating)];
 };
 
 /**
