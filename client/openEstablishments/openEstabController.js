@@ -7,7 +7,9 @@ angular.module('goodEats.openEstab', [])
     $http({
       method: 'POST',
       url: '/api/yelp',
-      data: $scope.open
+      data: {
+        openNow: $scope.open
+      }
     })
     .then(function(response) {
       console.log(response.data);
