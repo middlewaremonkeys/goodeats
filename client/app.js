@@ -5,9 +5,8 @@ angular.module('goodEats', [
   'goodEats.openEstab',
   'goodEats.priceFilter',
   'goodEats.radiusFilter',
+  'goodEats.radius',
   'gMap'
-		
-  
 ])
 .controller('displayController', ($scope, Search) => {
   $scope.data = Search.results;
