@@ -13,7 +13,6 @@ angular.module('goodEats.openEstab', [])
     })
     .then(function(response) {
       console.log(response.data);
-
     })
     .catch(function(error) {
       console.log(error);
