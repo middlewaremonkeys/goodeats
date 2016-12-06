@@ -14,7 +14,7 @@
       <style> gm-map {float: right; width: 40%; height: 350px;}</style>
         <gm-map options="{{ geolocation }}"> Geolocation
           <gm-marker options="{{ currentLocation }}" >Current Location
-          <gm-marker ng-repeat="loc in fakeData" options="{{ loc.coordinates }}">
+          <gm-marker ng-repeat="loc in data" options="{{ loc.coordinates }}">
             <gm-infowindow options='{content: "{{ loc.name }}" }'></gm-infowindow>
           </gm-marker>
           </gm-marker>
