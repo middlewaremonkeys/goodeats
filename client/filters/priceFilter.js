@@ -8,5 +8,5 @@ angular.module('goodEats.priceFilter', [])
   $scope.displayPrices = ['cheap', 'medium', 'expensive', 'high-end'];
   $scope.ratings = Search.options.rating;
   $scope.ratingFilter = Search.ratingFilter;
-  $scope.displayRatings = ['you may die', 'eat at your own risk', 'edible', 'delicious', 'experience foodgasms'];
+  $scope.displayRatings = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
 });
