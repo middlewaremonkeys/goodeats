@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="MyApp" ng-controller="mapController">
+<html ng-app="gMap" ng-controller="mapController">
 <head>
 <!-- <link rel="stylesheet" href="styles.css"> -->
   <style>gm-map {float: right; width: 80%; height: 250px;}</style>
@@ -16,14 +16,14 @@
       <!-- </gm-marker> -->
     <!-- </gm-map> -->
     <gm-map options="{{ geolocation }}">
-      <!-- <gm-marker options="{{ currentLocation }}" on-dragend="coords.latitude=marker.getPosition().lat(); coords.longitude=marker.getPosition().lng()"> -->
+      <gm-marker options="{{ currentLocation }}" >
       <gm-marker ng-repeat="loc in fakeData" options="{{ loc.coordinates }}">
-       <!--  <gm-infowindow options="{content: '{{ loc.name }}' }"> -->
+        <gm-infowindow options="{content: '{{ loc.name }}' }">
         </gm-infowindow>
       </gm-marker>
     </gm-map>
 
     <div ng-if="coords.latitude !== false">Dragend on [{{coords.latitude}}, {{coords.longitude}}]</div>
-    <script src="app.js"></script>
+    <script src="gMap.js"></script>
   </body>
 </html>

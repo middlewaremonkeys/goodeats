@@ -4,8 +4,25 @@
     <meta charset="utf-8">
     <title>Goodeats</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRLkiwWZDhcgtpg84llEW9JKCp5OphkOE"></script>
+    <script src="/node_modules/angular-google-maps-native/dist/angular-google-maps-native.min.js"></script>
   </head>
-  <body ng-app="goodEats">
+
+  <body>
+
+    <div ng-controller = "mapController">
+      <style> gm-map {float: right; width: 40%; height: 350px;}</style>
+        <gm-map options="{{ geolocation }}"> Geolocation
+          <gm-marker options="{{ currentLocation }}" >Current Location
+          <gm-marker ng-repeat="loc in fakeData" options="{{ loc.coordinates }}">
+            <gm-infowindow options='{content: "{{ loc.name }}" }'></gm-infowindow>
+          </gm-marker>
+          </gm-marker>
+        </gm-map>
+    <!-- <div ng-if="coords.latitude !== false">Dragend on [{{coords.latitude}}, {{coords.longitude}}]</div> -->
+    <!-- <script src="gMap/app.js"></script> -->
+    </div>
+
     <div class="prices" ng-controller="PriceFilterController">
       <input type="text" ng-model="price" placeholder ="price  category">
       <button ng-click="priceFilter()"> submit </button>
@@ -29,7 +46,7 @@
         <br>
       </li>
     </ul>
-    <div class="prices" ng-controller="filterController">
+    <div class="prices" ng-controller="PriceFilterController">
       <input type="text" ng-model="price" placeholder ="price  category">
       <button ng-click="priceFilter()"> submit </button>
     </div>
@@ -37,6 +54,7 @@
   <script src="app.js" charset="utf-8"></script>
   <script src="services/services.js" charset="utf-8"></script>
   <script src="locator/locationController.js" charset="utf-8"></script>
+  <script src="gMap/gMap.js"></script>
   <script src="filters/priceFilter.js"></script>
   <script src="filters/radiusFilter.js"></script>
   <script src="foodSearch/foodSearchController.js" charset="utf-8"></script>

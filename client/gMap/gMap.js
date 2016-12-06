@@ -1,11 +1,11 @@
-angular.module('MyApp', ['GoogleMapsNative'])
+angular.module('gMap', ['GoogleMapsNative'])
 
-.controller('mapController', function($scope, $http, Search) {
+.controller('mapController', function($scope, $http) {
   
 $scope.fakeData = [
   {
     "rating": 5,
-    "coordinates": {
+    "coordinates" : {
       "position": [
         40.7056832469878,
         -74.0017905060425
@@ -204,7 +204,7 @@ $scope.fakeData = [
    // 	});
    // }
 
-  $scope.data = Search.results;
+  // $scope.data = Search.results;
   $scope.storage = [];
 
 	$scope.coords = {
@@ -223,24 +223,24 @@ $scope.fakeData = [
   	draggable: true
   }
 
-  // $scope.locArr = [
-		// // {
-		// // 	pos: {
-		// //   	position:  [37.772323, -122.214897],
-		// //   	draggable: true
-		// // 	},
-	 // //  	text: 'loc 1'
-	 // //  },
-		// // {
-		// // 	pos: {
-		// // 		position:  [36.772323, -122.214897],
-		// //   	draggable: true
-		// // 	},
-	 // //  	text: 'loc 2'
-	 // //  }
-  // ];
+ //  $scope.locArr = [
+	// 	{
+	// 		pos: {
+	// 	  	position:  [37.772323, -122.214897],
+	// 	  	draggable: true
+	// 		},
+	//   	text: 'loc 1'
+	//   },
+	// 	{
+	// 		pos: {
+	// 			position:  [36.772323, -122.214897],
+	// 	  	draggable: true
+	// 		},
+	//   	text: 'loc 2'
+	//   }
+ //  ];
 
-	console.log($scope.geolocation)
+	console.log("GEOLOCATION:", $scope.geolocation)
   // $scope.latitute = $scope.coords.latitude=marker.getPosition().lat()
   // $scope.longitude = $scope.coords.longitude=marker.getPosition().lng()
 
