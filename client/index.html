@@ -17,24 +17,27 @@
 
         <div class="prices" ng-controller="filterController">
           Prices:
-          <select ng-change="priceFilter()" ng-options="p.name as p.price group by p.price for p in prices" ng-model="prices"> 
+          <!-- <select ng-options="p.name as p.price group by p.price for p in prices{" ng-model="prices">  -->
+          <select ng-options="p for p in displayPrices" ng-model="priceFilter.price"> 
             <option>--</option>
           </select>
           Ratings:
-          <select ng-change="ratingFilter()" ng-options="r.name as r.rating group by r.rating for r in ratings | orderby: ratings.rating" ng-model="ratings">
+          <select ng-options="r for r in displayRatings" ng-model="ratingFilter.rating">
             <option>--</option>
           </select>
         </div>
 
       <ul ng-controller="displayController">
-        <li ng-repeat="business in data">
+        <li ng-repeat="business in data | filter: {price: 'priceFilter.price'} :true">
           <img ng-src="{{business.image}}">
           <br>
-          name: {{business.name}}
+            name: {{business.name}}
           <br>
-          ratings: {{business.rating}}
+            ratings: {{business.rating}}
           <br>
-          reviews: {{business.reviewCount}}
+            reviews: {{business.reviewCount}}
+          <br>
+            price: {{business.price}}
           <br>
         </li>
       </ul>

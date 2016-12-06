@@ -34,6 +34,8 @@ angular.module('goodEats.services', [])
     return $http.post('/api/yelp', options)
       .then((res) => {
         results.splice(0, results.length, ...res.data);
+        console.log('options', options);
+        console.log('results', results);
         return res.data;
       })
       .catch((err) => {
@@ -42,9 +44,15 @@ angular.module('goodEats.services', [])
       });
   };
 
+  var priceFilter = {};
+
+  var ratingFilter = {};
+
   return {
     options: options,
     results: results,
+    ratingFilter: ratingFilter,
+    priceFilter: priceFilter,
     search: search
   };
 });

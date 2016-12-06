@@ -1,52 +1,19 @@
 angular.module('goodEats.filters', [])
 
-.controller('filterController', function($scope, $http) {
+.controller('filterController', function($scope, Search) {
   $scope.data = {};
-  $scope.prices = ['1', '2'];
-  $scope.ratings = [];
+  $scope.prices = Search.options.price;
+  $scope.priceFilter = Search.priceFilter;
+  $scope.displayPrices = ['cheap', 'medium', 'expensive', 'high-end']
 
-  $scope.priceFilter = function() {
-    $scope.prices.push($scope.price);
+  $scope.ratings = Search.options.rating;
+  $scope.ratingFilter = Search.ratingFilter;
+  $scope.displayRatings = [1, 2, 3, 4, 5];
 
-    return $http({
-      method: 'POST',
-      url: '/yelp/api',
-      data:
-      {
-        'term': $scope.food,  //CREATE A SEARCH CONTROLLER AS A WRAPPER
-        'location': $scope.location,
-        'price': $scope.prices
-      }
-    })
-    .then(function(data) {
-      console.log('THE DATA', data);
-      return data;
-    })
-    .catch(function(error) {
-      console.log('ERROR:', error);
-    });
+  $scope.filterExpression = function(thana) {
+    return (thana.dId === $scope.selectedDist.id );
   };
 
-  $scope.ratingFilter = function() {
-    $scope.ratings.push($scope.rating);
 
-    return $http({
-      method: 'POST',
-      url: '/yelp/api',
-      data:
-      {
-        'term': $scope.food,  //CREATE A SEARCH CONTROLLER AS A WRAPPER
-        'location': $scope.location,
-        'rating': $scope.ratings
-      }
-    })
-    .then(function(data) {
-      console.log('THE DATA', data);
-      return data;
-    })
-    .catch(function(error) {
-      console.log('ERROR:', error);
-    });
-  }
 })
 
