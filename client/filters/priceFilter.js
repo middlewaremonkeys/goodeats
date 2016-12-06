@@ -1,34 +1,12 @@
 angular.module('goodEats.priceFilter', [])
 
-.controller('PriceFilterController', function($scope, $http) {
+.controller('filterController', function($scope, Search) {
   $scope.data = {};
-  $scope.prices = [];
+  $scope.prices = Search.options.price;
 
- $scope.priceFilter = function() {
-   $scope.prices.push($scope.price);
-
-    if($scope.prices.length > 1) {
-      $scope.prices = $scope.prices.filter(function(el, index, array) {
-        return index == array.indexOf(el);
-      });
-    }
-    
-    return $http({
-      method: 'POST',
-      url: '/location',
-      data:
-      {
-        'term': $scope.food, 
-        'location': $scope.location,
-        'price': $scope.prices
-      }
-    })
-    .then(function(data) {
-      console.log('THE DATA', data);
-      return data;
-    })
-    .catch(function(error) {
-      console.log('ERROR:', error);
-    });
-  };
+  $scope.priceFilter = Search.priceFilter;
+  $scope.displayPrices = ['cheap', 'medium', 'expensive', 'high-end'];
+  $scope.ratings = Search.options.rating;
+  $scope.ratingFilter = Search.ratingFilter;
+  $scope.displayRatings = ['you may die', 'eat at your own risk', 'edible', 'delicious', 'experience foodgasms'];
 });
