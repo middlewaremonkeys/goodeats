@@ -23,6 +23,7 @@ angular.module('goodEats.inputController', [])
       data: options
     })
     .then(function(response) {
+      // console.log("response.data", response.data);
       return response.data;
     })
     .catch(function(err) {

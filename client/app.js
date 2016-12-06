@@ -5,6 +5,3 @@ angular.module('goodEats', [
   'goodEats.foodSearch',
   'goodEats.openEstab'
 ])
-.controller('displayController', ($scope, Search) => {
-  $scope.data = Search.results;
-});
