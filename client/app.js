@@ -4,7 +4,8 @@ angular.module('goodEats', [
   'goodEats.foodSearch',
   'goodEats.openEstab',
   'goodEats.priceFilter',
-  'goodEats.radiusFilter'
+  'goodEats.radiusFilter',
+  'goodEats.radius'
 ])
 .controller('displayController', ($scope, Search) => {
   $scope.data = Search.results;
