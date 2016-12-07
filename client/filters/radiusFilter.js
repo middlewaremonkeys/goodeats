@@ -2,6 +2,7 @@
 angular.module('goodEats.radiusFilter', [])
 
 .controller('geoController', function($scope, Search) {
+  $scope.data = Search.options;
 
   //radius_filter: between 1-40000
 
