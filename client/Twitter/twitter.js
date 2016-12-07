@@ -1,33 +1,49 @@
-// angular.module("Twitter", ["ngSanitize"])
+angular.module('twitter', [])
 
-// .controller("TwitterController", function($scope) {
-// $scope.myHTML = {
-// 	pizza: '<a class="twitter-timeline"  href="https://twitter.com/hashtag/pizza" data-widget-id="806294283846295552">#pizza Tweets</a>' //ng model to replace pizza
-//     burger: 
-//  }
-// })
+.controller('TwitterController', function($scope, $timeout) {
+  $scope.pizza = false;
+  $scope.burger = false;
+  $scope.counter = 0;
 
-// angular.module('twitter', [])
 
-// .controller('TwitterController', function($scope) {
+  $scope.bool = function() {
+  	$scope.counter++;
+  	console.log("Counter", $scope.counter)
 
-// $scope.widgets = {
-//   "pizza": <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/pizza" data-widget-id="806363529657913344">#pizza Tweets</a>
+  	$timeout(function() {
+   		if ($scope.counter % 3 === 0) {
+  			$scope.pizza = false;
+  			$scope.burger = false;
+  		} else if (!$scope.pizza) {
+  			$scope.pizza = !$scope.pizza;
+  			$scope.burger = false;
+  		} else if (!$scope.burger) {
+  			$scope.burger = !$scope.burger;
+  			$scope.pizza = false;
+  		}
+  		// if ($scope.counter % 3 === 0) {
+  		// 	$scope.pizza = false;
+  		// 	$scope.burger = false;
+  		// } else {
+		  // 	$scope.pizza = !$scope.pizza;
+		  // 	$scope.burger = !$scope.burger;
+  		// }
+  	}, 1000);
+   //  if(!$scope.pizza) {	
+   //  return 	$timeout(function(){ $scope.pizza = !$scope.pizza}, 1000);
+   // }
+   // else if (!$scope.burger){
+   // 	return $timeout(function(){ $scope.burger = !$scope.burger}, 1000);
+   // } 
+   // else {
+   // 	console.log("Click again")
+   // }
+ }
+  console.log("Counter", $scope.counter)
+  console.log("test function", $scope.bool)
+  });
 
-// }
 
-// })
 
-// angular.module('twitter', ['ngResource'])
 
-// .controller('TwitterController', function($scope, $resource) {
-// 	console.log($scope)
-// 	console.log($resource)
-//     $scope.twitter = $resource('http://search.twitter.com/:action',
-//         {action:'search.json', q:'angularjs', callback:'JSON_CALLBACK'},
-//         {get:{method:'JSONP'}});
 
-//     $scope.doSearch = function () {
-//         $scope.twitterResult = $scope.twitter.get({q:$scope.searchTerm});
-//     };
-// })
