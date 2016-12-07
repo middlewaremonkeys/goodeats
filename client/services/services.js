@@ -49,12 +49,13 @@ angular.module('goodEats.services', [])
   var ratingFilter = {};
 
   var radiusFilter = {};
-  
+
   return {
     options: options,
     results: results,
     ratingFilter: ratingFilter,
     priceFilter: priceFilter,
-    search: search
+    search: search,
+    radiusFilter: radiusFilter
   };
 });
