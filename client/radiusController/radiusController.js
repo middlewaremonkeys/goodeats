@@ -1,5 +1,5 @@
-//a user should be able to enter the radius of their search location from the default by typing in an input box
-  // the value - in kilometers - will be passed in from the input box; this converts to meters per API format (max = 40,000, thus the limit in line 12)
+// a user should be able to enter the radius of their search location from the default by typing in an input box
+//   the value - in kilometers - will be passed in from the input box; this converts to meters per API format (max = 40,000, thus the limit in line 12)
 
 // angular.module('goodEats.radius', [])
 
