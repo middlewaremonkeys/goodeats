@@ -1,11 +1,11 @@
 
 angular.module('goodEats.radiusFilter', [])
-
+//THIS CONTROLLER HAS TO BE IMPLEMENTED AS A NEW FEATURE
 .controller('geoController', function($scope, $http) {
 
   //radius_filter: between 1-40000
 
-  $scope.radiusFilter = function() {
+  $scope.radiusFilter = function() { //make a post request to a /location endpoint
 
     return $http({
       method: 'POST',

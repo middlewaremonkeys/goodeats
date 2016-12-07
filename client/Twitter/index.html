@@ -1,3 +1,4 @@
+<!-- example of the original add-on into index.html-->
 
 
 <!DOCTYPE html>
@@ -7,22 +8,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
     <script src="./twitter.js"></script>
 </head>
-<body ng-controller="TwitterController">
-	<button ng-click="bool()" class="testButton">Test Button</button>
+<body ng-controller="TwitterController"> <!--Twitter Controller -->
+	<button ng-click="bool()" class="testButton">Test Button</button><!-- invoking bool() on click -->
 	<div >this is a test message
 		<div class="twitterborder">
     		<div class="widgets">
-        	<div ng-show="things.pizza" class="single-widget">  
+        	<div ng-show="things.pizza" class="single-widget">   <!-- #pizza widget-->
 				<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/pizza" width="400px" height= "400px" data-widget-id="806363529657913344">#pizza Tweets</a>
-             </div>
-                <div ng-show="things.burger" class="single-widget"> 
+             </div> 
+                <div ng-show="things.burger" class="single-widget">  <!-- #burger widget-->
  					<a class="twitter-timeline" width="400px" height= "400px" href="https://twitter.com/hashtag/burger" data-widget-id="806294451484299265">#burger Tweets</a>
                </div>
-               <div ng-show="things.default" class="single-widget"> 
+               <div ng-show="things.default" class="single-widget">  <!-- default #food widget-->
                 <a class="twitter-timeline"  width="400px" height= "400px" href="https://twitter.com/hashtag/food" data-widget-id="806562855839531010">#food Tweets</a>	
 
                </div>
-
+  <!-- DON'T TOUCH THIS CODE.IT IS FROM TWITTER DOCS AND IT IS RESPONSIBLE FOR LOADING OF ALL WIDGETS. 
+  FOR MORE INFORMATION TAKE A LOOK AT TWITTER/SETTING/CREATE A NEW SEARCH WIDGET-->
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
       
     </div>
