@@ -4,7 +4,9 @@
 ## Installation
 Copy and paste this into the terminal
 
-`git clone https://github.com/middlewaremonkeys/goodeats && git checkout develop && npm i`
+`git clone https://github.com/middlewaremonkeys/goodeats && cd goodeats && git checkout develop && npm i && cp .env.example .env`
+
+Setup the .env file, it should be copied from the .env.example using the commands above, however you still need to get a Yelp v3 (Fusion) ID and Secret
 
 ## Local dev server
 `npm run start:dev`
