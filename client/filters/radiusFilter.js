@@ -7,6 +7,7 @@ angular.module('goodEats.radiusFilter', [])
     if ($scope.radius > 0) {
       $scope.data.radius = $scope.radius * 1000;
        } else {
+        $scope.data.radius = 0;
 
   //radius_filter: between 1-40000
 
