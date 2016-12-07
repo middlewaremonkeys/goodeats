@@ -7,7 +7,7 @@ angular.module('goodEats', [
   'goodEats.radiusFilter',
   // 'goodEats.radius',
   'gMap',
-  'twitter'
+  'twitter' //or goodEats.twitter
 ])
 .controller('displayController', ($scope, Search) => {
   $scope.data = Search.results;

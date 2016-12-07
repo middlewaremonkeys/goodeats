@@ -5,7 +5,6 @@ angular.module('twitter', [])
   $scope.burger = false;
   $scope.counter = 0;
 
-
   $scope.bool = function() {
   	$scope.counter++;
   	console.log("Counter", $scope.counter)
