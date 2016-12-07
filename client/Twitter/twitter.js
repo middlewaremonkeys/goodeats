@@ -1,9 +1,33 @@
-angular.module("Twitter", ["ngSanitize"])
+// angular.module("Twitter", ["ngSanitize"])
 
+// .controller("TwitterController", function($scope) {
+// $scope.myHTML = {
+// 	pizza: '<a class="twitter-timeline"  href="https://twitter.com/hashtag/pizza" data-widget-id="806294283846295552">#pizza Tweets</a>' //ng model to replace pizza
+//     burger: 
+//  }
+// })
 
-.controller("TwitterController", function($scope) {
+// angular.module('twitter', [])
 
-$scope.myHTML = '<a class="twitter-timeline"  href="https://twitter.com/hashtag/pizza" data-widget-id="806294283846295552">#pizza Tweets</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
+// .controller('TwitterController', function($scope) {
 
+// $scope.widgets = {
+//   "pizza": <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/pizza" data-widget-id="806363529657913344">#pizza Tweets</a>
 
-})
+// }
+
+// })
+
+// angular.module('twitter', ['ngResource'])
+
+// .controller('TwitterController', function($scope, $resource) {
+// 	console.log($scope)
+// 	console.log($resource)
+//     $scope.twitter = $resource('http://search.twitter.com/:action',
+//         {action:'search.json', q:'angularjs', callback:'JSON_CALLBACK'},
+//         {get:{method:'JSONP'}});
+
+//     $scope.doSearch = function () {
+//         $scope.twitterResult = $scope.twitter.get({q:$scope.searchTerm});
+//     };
+// })
