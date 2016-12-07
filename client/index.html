@@ -12,6 +12,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRLkiwWZDhcgtpg84llEW9JKCp5OphkOE"></script>
     <script src="../node_modules/angular-google-maps-native/dist/angular-google-maps-native.min.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Twitter/styles.css">
   </head>
 
   <body>
@@ -81,14 +82,32 @@
             <br>
           </li>
         </ul> -->
-        <div class="col-md-offset-1 col-md-3" style="height: 500px" ng-controller="mapController">
-          <gm-map options="{{ geolocation }}"> Geolocation
-            <!-- <gm-marker options="{{ currentLocation }}" >Current Location -->
-            <gm-marker ng-repeat="loc in data" options="{{ loc.coordinates }}">
-              <gm-infowindow options='{content: "{{ loc.name }}" }'></gm-infowindow>
-            </gm-marker>
-            <!-- </gm-marker> -->
-          </gm-map>
+        <div class="col-md-offset-1 col-md-3">
+          <div class="row">
+            <div class="col-md-12" style="height: 500px" ng-controller="mapController">
+              <gm-map options="{{ geolocation }}"> Geolocation
+                <!-- <gm-marker options="{{ currentLocation }}" >Current Location -->
+                <gm-marker ng-repeat="loc in data" options="{{ loc.coordinates }}">
+                  <gm-infowindow options='{content: "{{ loc.name }}" }'></gm-infowindow>
+                </gm-marker>
+                <!-- </gm-marker> -->
+              </gm-map>
+            </div>
+            <div class="twitterborder col-md-12" ng-controller="TwitterController">
+              <div class="widgets">
+                <div ng-show="things.pizza" class="single-widget">
+                  <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/pizza" width="400px" height= "600px" data-widget-id="806363529657913344">#pizza Tweets</a>
+                </div>
+                <div ng-show="things.burger" class="single-widget">
+                  <a class="twitter-timeline" width="400px" height= "600px" href="https://twitter.com/hashtag/burger" data-widget-id="806294451484299265">#burger Tweets</a>
+                </div>
+                <div ng-show="things.default" class="single-widget">
+                  <a class="twitter-timeline"  width="400px" height= "600px" href="https://twitter.com/hashtag/food" data-widget-id="806562855839531010">#food Tweets</a>
+                </div>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -101,4 +120,5 @@
   <script src="filters/radiusFilter.js"></script>
   <script src="foodSearch/foodSearchController.js" charset="utf-8"></script>
   <script src="openEstablishments/openEstabController.js" charset="utf-8"></script>
+  <script src="Twitter/twitter.js" charset="utf-8"></script>
 </html>
