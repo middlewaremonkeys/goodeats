@@ -21,6 +21,7 @@ angular.module('goodEats.priceFilter', [])
   But using phrases instead of two numbers per integer; 
   ie; "SUCKS" = 1 & 1.5, "OKAY" = 2 & 2.5 etc.
   */
+  
 
   $scope.ratings = Search.options.rating;
   $scope.ratingFilter = Search.ratingFilter;
