@@ -10,6 +10,7 @@ angular.module('goodEats.radiusFilter', [])
         $scope.data.radius = 0;
          }
          Search.search();
+         };
 
   //radius_filter: between 1-40000
 
