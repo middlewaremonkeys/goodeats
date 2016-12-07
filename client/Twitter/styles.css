@@ -1,0 +1,27 @@
+.twitterborder {
+/*    width:300px;
+    height:300px;*/
+    margin-top:53px;
+    margin-right:5%;
+    float:right;
+    background:#707070;
+    text-align: center;
+}
+.widgets{
+    display:table;
+    height: 100%;
+    width: 100%;
+}
+.table-cell{
+    display:table-cell;
+    vertical-align: middle;
+}
+
+
+
+
+
+
+
+            
+          

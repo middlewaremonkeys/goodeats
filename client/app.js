@@ -6,7 +6,8 @@ angular.module('goodEats', [
   'goodEats.priceFilter',
   'goodEats.radiusFilter',
   // 'goodEats.radius',
-  'gMap'
+  'gMap',
+  'twitter' //or goodEats.twitter
 ])
 .controller('displayController', ($scope, Search) => {
   $scope.data = Search.results;
