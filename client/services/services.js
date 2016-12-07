@@ -48,6 +48,8 @@ angular.module('goodEats.services', [])
 
   var ratingFilter = {};
 
+  var radiusFilter = {};
+  
   return {
     options: options,
     results: results,
