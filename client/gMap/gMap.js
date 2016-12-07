@@ -4,14 +4,14 @@ angular.module('gMap', ['GoogleMapsNative'])
   //Center = Manhattan/ New York
   $scope.data = Search.results;
   $scope.storage = [];
- 
+
 	$scope.coords = {
-  	latitude: false, 
+  	latitude: false,
   	longitude: false
   }
   $scope.geolocation = {
   	center: [40.7591704, -74.039271],
-  	zoom: 10, 
+  	zoom: 12, 
   	mapTypeId: google.maps.MapTypeId.ROADMAP
   }
   $scope.currentLocation = {
