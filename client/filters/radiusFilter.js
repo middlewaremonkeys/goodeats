@@ -9,6 +9,7 @@ angular.module('goodEats.radiusFilter', [])
        } else {
         $scope.data.radius = 0;
          }
+         Search.search();
 
   //radius_filter: between 1-40000
 
