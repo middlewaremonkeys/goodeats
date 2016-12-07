@@ -10,4 +10,6 @@ angular.module('goodEats', [
 ])
 .controller('displayController', ($scope, Search) => {
   $scope.data = Search.results;
+  $scope.priceFilter = Search.priceFilter;
+  $scope.ratingFilter = Search.ratingFilter;
 });
