@@ -1,4 +1,9 @@
 angular.module('goodEats.services', [])
+/**
+ * Search factory
+ * sends post request to internal api, storing query options and result data
+ * @options and @results passed around to most of the controllers by reference along with a few other variables
+ */
 .factory('Search', ($http) => {
 
   /**
@@ -27,7 +32,7 @@ angular.module('goodEats.services', [])
 
   /**
    * Send post request to backend for a yelp request with the options object
-   * Overwrites results
+   * Modifys results in place instead of assigning to a different array
    * @return Promise Resolves to data from response or error
    */
   var search = () => {
