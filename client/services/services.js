@@ -4,7 +4,7 @@ angular.module('goodEats.services', [])
  * sends post request to internal api, storing query options and result data
  * @options and @results passed around to most of the controllers by reference along with a few other variables
  */
-.factory('Search', ($http) => {
+.factory('Search', ['$http', '$log', ($http, $log) => {
 
   /**
    * Search options
@@ -39,12 +39,12 @@ angular.module('goodEats.services', [])
     return $http.post('/api/yelp', options)
       .then((res) => {
         results.splice(0, results.length, ...res.data);
-        console.log('options', options);
-        console.log('results', results);
+        $log.log('options', options);
+        $log.log('results', results);
         return res.data;
       })
       .catch((err) => {
-        console.err(err);
+        $log.error(err);
         return err;
       });
   };
@@ -63,4 +63,4 @@ angular.module('goodEats.services', [])
     search: search,
     radiusFilter: radiusFilter
   };
-});
+}]);

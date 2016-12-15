@@ -1,10 +1,9 @@
 require('dotenv').config();
-var express = require('express');
-var bodyParser = require('body-parser');
-var router = require('./router.js');
-var app = express();
-var port = process.env.PORT || 3000;
-var yelpController = require('./yelpController');
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const port = process.env.PORT || 3000;
+const yelpController = require('./yelpController');
 
 app.use(express.static(__dirname + '/../client'));
 app.use('/node_modules', express.static(__dirname + '/../node_modules'));
@@ -21,8 +20,8 @@ app.post('/api/yelp/', (req, res) => {
     });
 });
 
-app.get('*', function(req, res) {
-  res.send('GOODEATS!!!!');
+app.get('*', (req, res) => {
+  res.send('GoodEats!!!!');
 });
 
 app.listen(port);

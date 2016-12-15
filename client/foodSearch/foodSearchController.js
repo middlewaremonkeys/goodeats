@@ -1,20 +1,18 @@
 angular.module('goodEats.foodSearch', [])
 
-.controller('foodSearchController', function($scope, $http) {
-  // var dataSend = {foodRequest: foodRequest}
+.controller('foodSearchController', ['$scope', '$http', '$log', ($scope, $http, $log) => {
   $scope.data = {};
-  $scope.sendFoodSearch = function() {
+  $scope.sendFoodSearch = () => {
     $http({
       method: 'POST',
       url: '/api/yelp',
       data: JSON.stringify($scope.data)
     })
-    .then(function(response) {
-      console.log(response.data);
-
+    .then((response) => {
+      $log.log(response.data);
     })
-    .catch(function(error) {
-      console.log(error);
+    .catch((error) => {
+      $log.error(error);
     });
   };
-});
+}]);
