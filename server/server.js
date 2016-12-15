@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 3000;
-const yelpController = require('./yelpController');
+const yelpController = require('./API/yelpController');
 
 app.use(express.static(__dirname + '/../client'));
 app.use('/node_modules', express.static(__dirname + '/../node_modules'));
