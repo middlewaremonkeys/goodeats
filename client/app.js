@@ -5,12 +5,12 @@ angular.module('goodEats', [
   'goodEats.openEstab',
   'goodEats.priceFilter',
   'goodEats.radiusFilter',
-  // 'goodEats.radius',
   'gMap',
-  'twitter' //or goodEats.twitter
+  'twitter'
+  // 'goodEats.radius',
 ])
-.controller('displayController', ($scope, Search) => {
+.controller('displayController', ['$scope', 'Search', ($scope, Search) => {
   $scope.data = Search.results;
   $scope.priceFilter = Search.priceFilter;
   $scope.ratingFilter = Search.ratingFilter;
-});
+}]);
