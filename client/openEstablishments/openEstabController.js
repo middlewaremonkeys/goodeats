@@ -1,8 +1,9 @@
 angular.module('goodEats.openEstab', [])
 
-.controller('openEstabController', function($scope, $http) {
+.controller('openEstabController', ['$scope', '$http', '$log', ($scope, $http, $log) => {
   $scope.open = false;
-  $scope.toggleOpenEstablishments = function() {
+
+  $scope.toggleOpenEstablishments = () => {
     $scope.open = !$scope.open;
     $http({
       method: 'POST',
@@ -11,11 +12,11 @@ angular.module('goodEats.openEstab', [])
         openNow: $scope.open
       }
     })
-    .then(function(response) {
-      console.log(response.data);
+    .then((response) => {
+      $log.log(response.data);
     })
-    .catch(function(error) {
-      console.log(error);
+    .catch((error) => {
+      $log.error(error);
     });
   };
-});
+}]);
