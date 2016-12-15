@@ -1,6 +1,6 @@
 angular.module('goodEats.priceFilter', [])
 
-.controller('filterController', ($scope, Search) => {
+.controller('filterController', ['$scope', 'Search', ($scope, Search) => {
   $scope.data = {};
 
   /*
@@ -26,4 +26,4 @@ angular.module('goodEats.priceFilter', [])
   $scope.ratings = Search.options.rating;
   $scope.ratingFilter = Search.ratingFilter;
   $scope.displayRatings = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
-});
+}]);

@@ -1,7 +1,7 @@
 
 angular.module('goodEats.radiusFilter', [])
 
-.controller('geoController', ($scope, Search) => {
+.controller('geoController', ['$scope', 'Search', ($scope, Search) => {
   $scope.data = Search.options;
 
   $scope.search = () => {
@@ -12,4 +12,4 @@ angular.module('goodEats.radiusFilter', [])
     }
     Search.search();
   };
-});
+}]);
