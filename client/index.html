@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html ng-app='goodEats'>
+  <head>
+    <meta charset="utf-8">
+    <title>Goodeats</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRLkiwWZDhcgtpg84llEW9JKCp5OphkOE"></script>
+    <script src="../node_modules/angular-google-maps-native/dist/angular-google-maps-native.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Twitter/styles.css">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><img src="assets/goodEatsthumbnail.png" /></a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <form class="form-inline">
+          <div class="col-md-4" ng-controller="inputController">
+            <input class="form-control" type="text" ng-model="query.term" placeholder="Hungry?" />
+            <input class="form-control" type="text" ng-model="query.location" placeholder ="Where are you?" />
+            <button class="btn btn-light" ng-click="search()"> Show me food! </button>
+          </div>
+          <button class="col-md-2 btn btn-white" ng-model="openEstab" ng-change="openEstab" ng-controller="openEstabController" ng-click="toggleOpenEstablishments()">Open Now!</button>
+          <div class="col-md-offset-1 col-md-5" ng-controller="filterController">
+            <div class="row">
+              <div class="form-group">
+                <label for="priceSelect" class="col-md-2 control-label">Prices</label>
+                <select class="col-md-10" id="priceSelect" ng-options="price for price in displayPrices" ng-model="priceFilter.price"></select>
+              </div>
+              <div class="form-group">
+                <label for="ratingSelect" class="col-md-2 control-label">Ratings</label>
+                <select class="col-md-10" id="ratingSelect" ng-options="rating for rating in displayRatings" ng-model="ratingFilter.rating"></select>
+              </div>
+       
+       <div class="radius" ng-controller="geoController">
+       <input type="number" ng-model="radius" placeholder ="Enter distance in km.">
+       <button ng-click="search()"> Customize your results radius </button> 
+
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="row" ng-controller="displayController">
+            <div class="col-md-4" ng-repeat="business in data | filter:{price: priceFilter.price}:true | filter:{rating: ratingFilter.rating}:true">
+              <div class="panel panel-white">
+                <div class="panel-heading">
+                  <h3 class="panel-title">{{ business.name }}</h3>
+                </div>
+                <div class="panel-body" style="height: 200px">
+                  <img class="img-thumbnail" ng-src="{{ business.image }}" style="max-height: 280px">
+                </div>
+                <div class="panel-footer">
+                  Rating: {{ business.rating }} | Review Count: {{ business.reviewCount }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <ul ng-controller="displayController">
+          <li ng-repeat="business in data | filter:{price: priceFilter.price}:true | filter:{rating: ratingFilter.rating}:true">
+            <img ng-src="{{business.image}}">
+            <br>
+              name: {{business.name}}
+            <br>
+              ratings: {{business.rating}}
+            <br>
+              reviews: {{business.reviewCount}}
+            <br>
+              price: {{business.price}}
+            <br>
+          </li>
+        </ul> -->
+        <div class="col-md-offset-1 col-md-3">
+          <div class="row">
+            <div class="col-md-12" style="height: 500px" ng-controller="mapController">
+              <gm-map options="{{ geolocation }}"> Geolocation
+                <!-- <gm-marker options="{{ currentLocation }}" >Current Location -->
+                <gm-marker ng-repeat="loc in data" options="{{ loc.coordinates }}">
+                  <gm-infowindow options='{content: "{{ loc.name }}" }'></gm-infowindow>
+                </gm-marker>
+                <!-- </gm-marker> -->
+              </gm-map>
+            </div>
+            <div class="twitterborder col-md-12" ng-controller="TwitterController">
+              <div class="widgets">
+                <div ng-show="things.pizza" class="single-widget">
+                  <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/pizza" width="400px" height= "600px" data-widget-id="806363529657913344">#pizza Tweets</a>
+                </div>
+                <div ng-show="things.burger" class="single-widget">
+                  <a class="twitter-timeline" width="400px" height= "600px" href="https://twitter.com/hashtag/burger" data-widget-id="806294451484299265">#burger Tweets</a>
+                </div>
+                <div ng-show="things.default" class="single-widget">
+                  <a class="twitter-timeline"  width="400px" height= "600px" href="https://twitter.com/hashtag/food" data-widget-id="806562855839531010">#food Tweets</a>
+                </div>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+  <script src="app.js" charset="utf-8"></script>
+  <script src="services/services.js" charset="utf-8"></script>
+  <script src="filters/locationController.js" charset="utf-8"></script>
+  <script src="social/gMap.js"></script>
+  <script src="filters/priceFilterController.js"></script>
+  <script src="filters/radiusFilterController.js"></script>
+  <script src="filters/foodSearchController.js" charset="utf-8"></script>
+  <script src="filters/openEstabController.js" charset="utf-8"></script>
+  <script src="social/twitter.js" charset="utf-8"></script>
+</html>
