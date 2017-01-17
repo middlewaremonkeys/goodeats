@@ -1,5 +1,34 @@
-# goodeats
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Goodeats
+
+##Description: 
+Food seeking app which allows the users to search for their favourite food preferences with an intuitive and elegant UI.
+
 [Heroku App](https://goodeats-dev.herokuapp.com/)
+
+## Team
+Product Owner - Svetlin Mladenov
+
+Scrum Master - Sam Phillips
+
+Development Team - Sean Ho, John Packel, Sam Phillips, Svetlin Mladenov 
+
+## Our Tech Stack
+
+!['tech stack'](/client/assets/tech_stack.png)
 
 ## Installation
 Copy and paste this into the terminal
