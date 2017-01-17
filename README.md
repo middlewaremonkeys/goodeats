@@ -1,21 +1,7 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Goodeats
+# # ![GoodEats](/client/assets/GoodEats.png)
 
 ##Description: 
-Food seeking app which allows the users to search for their favourite food preferences with an intuitive and elegant UI.
+GoodEats is a food seeking app which allows the user to search for their favourite food preferences with an intuitive and elegant UI.
 
 [Heroku App](https://goodeats-dev.herokuapp.com/)
 
