@@ -1,9 +1,9 @@
-# # ![GoodEats](/client/assets/GoodEats.png)
+# # ![GoodEats](/client/assets/goodEatsthumbnail.png)
 
 ##Description: 
 GoodEats is a food seeking app which allows the user to search for their favourite food preferences with an intuitive and elegant UI.
 
-[Heroku App](https://goodeats-dev.herokuapp.com/)
+[Live link](https://goodeats-dev.herokuapp.com/)
 
 ## Team
 Product Owner - Svetlin Mladenov
