@@ -6,11 +6,11 @@ GoodEats is a food seeking app which allows the user to search for their favouri
 [Live link](https://goodeats-dev.herokuapp.com/)
 
 ## Team
-Product Owner - Svetlin Mladenov
+ - __Product Owner__: [Svetlin Mladenov](http://github.com/sveem)
 
-Scrum Master - Sam Phillips
+- __Git Manager__: [Sam Phillips](http://github.com/armyf35)
 
-Development Team - Sean Ho, John Packel, Sam Phillips, Svetlin Mladenov 
+- __Development Team Members__: [Sean Ho](http://github.com/seansinflipflops), [John Packel](http://github.com/john-packel), [Sam Phillips](http://github.com/armyf35), [Svetlin Mladenov](http://github.com/sveem)
 
 ## Our Tech Stack
 
