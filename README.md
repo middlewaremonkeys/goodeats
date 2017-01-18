@@ -1,5 +1,20 @@
-# goodeats
-[Heroku App](https://goodeats-dev.herokuapp.com/)
+# ![GoodEats](/client/assets/goodEatsthumbnail.png)
+
+##Description: 
+GoodEats is a food seeking app which allows the user to search for their favourite food preferences with an intuitive and elegant UI.
+
+[Live link](https://goodeats-dev.herokuapp.com/)
+
+## Team
+ - __Product Owner__: [Svetlin Mladenov](http://github.com/sveem)
+
+- __Git Manager__: [Sam Phillips](http://github.com/armyf35)
+
+- __Development Team Members__: [Sean Ho](http://github.com/seansinflipflops), [John Packel](http://github.com/john-packel), [Sam Phillips](http://github.com/armyf35), [Svetlin Mladenov](http://github.com/sveem)
+
+## Our Tech Stack
+
+!['tech stack'](/client/assets/tech_stack.png)
 
 ## Installation
 Copy and paste this into the terminal
