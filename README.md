@@ -1,6 +1,6 @@
 # ![GoodEats](/client/assets/goodEatsthumbnail.png)
 
-##Description: 
+##Description:
 GoodEats is a food seeking app which allows the user to search for their favourite food preferences with an intuitive and elegant UI.
 
 [Live link](https://goodeats-dev.herokuapp.com/)
@@ -10,7 +10,7 @@ GoodEats is a food seeking app which allows the user to search for their favouri
 
 - __Git Manager__: [Sam Phillips](http://github.com/armyf35)
 
-- __Development Team Members__: [Sean Ho](http://github.com/seansinflipflops), [John Packel](http://github.com/john-packel), [Sam Phillips](http://github.com/armyf35), [Svetlin Mladenov](http://github.com/sveem)
+- __Development Team Members__: [Sean Ho](http://github.com/sho13), [John Packel](http://github.com/john-packel), [Sam Phillips](http://github.com/armyf35), [Svetlin Mladenov](http://github.com/sveem)
 
 ## Our Tech Stack
 
