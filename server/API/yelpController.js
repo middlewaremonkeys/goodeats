@@ -1,18 +1,18 @@
 var yelp = require('yelp-fusion');
-var client = yelp.client('');
-var clientId = process.env.YELP_ID;
-var clientSecret = process.env.YELP_SECRET;
+var client = yelp.client(process.env.YELP_API_KEY);
+// var clientId = process.env.YELP_ID;
+// var clientSecret = process.env.YELP_SECRET;
 
 /**
  * Send post request for yelp OAuth token
  *  Set client to a yelp client with the OAuth token
  */
-yelp.accessToken(clientId, clientSecret).then(response => {
-  console.log(response.jsonBody.access_token);
-  client = yelp.client(response.jsonBody.access_token);
-}).catch(e => {
-  console.log(e);
-});
+// yelp.accessToken(clientId, clientSecret).then(response => {
+//   console.log(response.jsonBody.access_token);
+//   client = yelp.client(response.jsonBody.access_token);
+// }).catch(e => {
+//   console.log(e);
+// });
 
 /**
  * Search the yelp API with given parameters
